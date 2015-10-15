@@ -114,8 +114,14 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.plugin.version}</version>
 				<configuration>
-				    <scanIntervalSeconds>2</scanIntervalSeconds>
-				</configuration>
+				    <stopPort>9966</stopPort>
+                    <stopKey>/</stopKey>
+                    <scanIntervalSeconds>2</scanIntervalSeconds>
+                    <!-- make sure Jetty also finds the widgetset -->
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                    </webAppConfig>
+                </configuration>
             </plugin>
             <!-- TODO remove? -->
             <plugin>

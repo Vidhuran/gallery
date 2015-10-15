@@ -11,6 +11,30 @@
     <name>gallery-ui</name>
     <packaging>war</packaging>
 
+	<profiles>
+		<profile>
+			<id>development-home</id>
+			<properties>
+				<root.file.location>C:\Users\evidhar\</root.file.location>
+				<images.document.root>http://127.0.0.1:9090/</images.document.root>
+			</properties>
+		</profile>
+		<profile>
+			<id>development-ericsson</id>
+			<properties>
+				<root.file.location>C:\Users\evidhar\</root.file.location>
+				<images.document.root>http://127.0.0.1:9090/</images.document.root>
+			</properties>
+		</profile>
+		<profile>
+			<id>production</id>
+			<properties>
+				<root.file.location>/var/www/media</root.file.location>
+				<images.document.root>http://vid.cloudapp.net/</images.document.root>
+			</properties>
+		</profile>
+	</profiles>
+
     <dependencies>
     	<!-- Versions for these are configured in the parent POM -->
 		<dependency>
@@ -60,6 +84,15 @@
     </dependencies>
 
     <build>
+    	<resources>
+        	<resource>
+            	<directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+          			<include>**/*.properties</include>
+        		</includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

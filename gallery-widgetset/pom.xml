@@ -28,11 +28,6 @@
    			<artifactId>vaadin-sliderpanel</artifactId>
    			<version>${vaadin.addon.version}</version>
 		</dependency>
-		<dependency>
-    <groupId>com.vaadin.addon</groupId>
-    <artifactId>vaadin-charts</artifactId>
-    <version>3.0.0-alpha6</version>
-</dependency>
     </dependencies>
 
     <build>

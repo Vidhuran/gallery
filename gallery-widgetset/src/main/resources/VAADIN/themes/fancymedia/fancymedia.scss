@@ -1,0 +1,41 @@
+@mixin fancymedia {
+
+   $fancy-img-trans-len: 0.5s !default;
+   $fancy-perspective: 700px !default;
+
+  .fancy-image {
+    border-width: 0px;
+
+    > IMG {
+      -moz-transition: opacity $fancy-img-trans-len ease-in-out;
+      -webkit-transition: opacity $fancy-img-trans-len ease-in-out;
+      -o-transition: opacity $fancy-img-trans-len ease-in-out;
+      transition: opacity $fancy-img-trans-len ease-in-out;
+
+      &.fancy--on, &.fancy--out {
+        -moz-transition: opacity $fancy-img-trans-len ease-in-out, -moz-transform $fancy-img-trans-len linear;
+        -webkit-transition: opacity $fancy-img-trans-len ease-in-out, -webkit-transform $fancy-img-trans-len linear;
+        -o-transition: opacity $fancy-img-trans-len ease-in-out, -o-transform $fancy-img-trans-len linear;
+        transition: opacity $fancy-img-trans-len ease-in-out, transform $fancy-img-trans-len linear;
+      }
+    }
+
+    &.fancy-image-rotate {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-perspective: $fancy-perspective;
+      -ie-perspective: $fancy-perspective;
+      perspective: $fancy-perspective;
+
+      > IMG {
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+    }
+}

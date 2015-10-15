@@ -1,0 +1,116 @@
+{
+  "menu": {
+    "countries" : [
+      {
+        "name" : "Croatia",
+        "flag" : "hr",
+        "cities" : [
+          {
+            "displayName" : "Dubrovnik",
+            "simpleName" : "dubrovnik"
+          },
+          {
+            "displayName" : "Split",
+            "simpleName" : "split"
+          },
+          {
+            "displayName" : "Plitvice",
+            "simpleName" : "plitvice"
+          }
+         ]
+      },
+      {
+        "name" : "Bosnia",
+        "flag" : "ba",
+        "cities" : [
+          {
+            "displayName" : "Mostar",
+            "simpleName" : "mostar"
+          },
+          {
+            "displayName" : "Počitelj",
+            "simpleName" : "pocitelj"
+          },
+          {
+            "displayName" : "Rest of Bosnia",
+            "simpleName" : "rest-of-bosnia"
+          }
+         ]
+      },
+      {
+        "name" : "Slovenia",
+        "flag" : "si",
+        "cities" : [
+          {
+            "displayName" : "Ljubljana",
+            "simpleName" : "ljubljana"
+          }
+         ]
+      },
+      {
+        "name" : "Austria",
+        "flag" : "at",
+        "cities" : [
+          {
+            "displayName" : "Villach",
+            "simpleName" : "villach"
+          }
+         ]
+      },
+      {
+        "name" : "Italy",
+        "flag" : "it",
+        "cities" : [
+          {
+            "displayName" : "Venice",
+            "simpleName" : "venice"
+          }
+         ]
+      },
+      {
+        "name" : "Finland",
+        "flag" : "fi",
+        "cities" : [
+          {
+            "displayName" : "Kimi",
+            "simpleName" : "kimi"
+          },
+          {
+            "displayName" : "HJK v/s Liverpool",
+            "simpleName" : "hjk-liverpool"
+          }
+         ]
+      },
+      {
+        "name" : "Spain",
+        "flag" : "es",
+        "cities" : [
+          {
+            "displayName" : "Alicante",
+            "simpleName" : "alicante"
+          },
+          {
+            "displayName" : "Granada",
+            "simpleName" : "granada"
+          },
+          {
+            "displayName" : "Córdoba",
+            "simpleName" : "cordoba"
+          },
+          {
+            "displayName" : "Madrid",
+            "simpleName" : "madrid"
+          },
+          {
+            "displayName" : "Toledo",
+            "simpleName" : "toledo"
+          },
+          {
+            "displayName" : "Barcelona",
+            "simpleName" : "barcelona"
+          }
+         ]
+      }
+    ]
+  }
+}

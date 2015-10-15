@@ -1,0 +1,102 @@
+@mixin top-menu {
+
+    background-color: white;
+
+	.v-menubar {
+		padding: 0;
+		height: 50px;
+		line-height: 50px;
+	}
+	
+    .v-menubar {
+		height: 50px;
+        & > .v-menubar-menuitem {
+    		line-height: 50px;
+	    	margin: 0;
+	    	color: $active-color;
+	    	
+	    	&:hover {
+	    		color : black;
+	    	}
+
+            & .v-icon {
+                margin: 0 4px 5px -4px;
+                cursor: inherit;
+            }
+    	}
+
+		& > .v-menubar-menuitem-selected {
+			&,
+			&:hover,
+			&:first-child,
+			&:last-child,
+			&:first-child:last-child {
+				background-image: none;
+				background-color: transparent;
+				border-bottom: 4px solid $active-color;
+				border-radius: 0;
+				color: $active-color;
+			}
+		}
+    }
+        
+    .v-menubar-borderless {
+	    .v-menubar-menuitem {
+	    	border-bottom-color: $active-color;
+			-webkit-transition: 
+					color $transition-time, 
+					border-bottom-width $transition-time, 
+					border-bottom-color $transition-time;
+			-moz-transition: 
+					color $transition-time, 
+					border-bottom-width $transition-time, 
+					border-bottom-color $transition-time;
+			transition:  
+					color $transition-time, 
+					border-bottom-width $transition-time, 
+					border-bottom-color $transition-time;
+		}
+    
+	    .v-menubar-menuitem-selected,
+	    .v-menubar-menuitem-selected:last-child,
+	    .v-menubar-menuitem:hover {
+	    	color: black;
+	    }
+    } 
+	.v-slot-top-menu {
+		border-bottom: 1px solid $active-color;
+	}
+	
+	.v-button-arrows {
+		font-size: xx-large;
+		&:focus {
+			&:after {
+				box-shadow: none;
+			}
+		}
+	
+		left {
+			&:hover {
+		  		box-shadow: inset -2px 0px 0px 0px $active-color;
+		  		-webkit-transition: 
+		  			box-shadow $transition-time;
+		  		-moz-transition: 
+		  			box-shadow $transition-time;
+		  		transition: 
+		  			box-shadow $transition-time;
+			}
+		}
+		
+		right {
+			&:hover {
+		  		box-shadow: inset px 0px -2px 0px $active-color;
+		  		-webkit-transition: 
+		  			box-shadow $transition-time;
+		  		-moz-transition: 
+		  			box-shadow $transition-time;
+		  		transition: 
+		  			box-shadow $transition-time;
+			}
+		}
+	}	
+}

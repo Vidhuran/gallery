@@ -1,0 +1,48 @@
+// Global variable overrides. Must be declared before importing Valo.
+
+$active-color : #62BFCB;
+$transition-time : 200ms !default;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+@import "topmenu.scss";
+
+@mixin gallery {
+  @include valo;
+  @include top-menu;	
+  
+  .thumbnail {
+  	border: ridge gold;
+  	border-radius: 13em/3em;
+  	cursor: pointer;	
+  }
+  
+  .fancy-image {
+  	> img {
+  		position: absolute;
+  		text-align: center;
+  		max-height: 100%;
+  		max-width: 100%;
+  	}
+  	
+  }
+  
+  .icon-buttons {
+  	height: 100%;
+  	background: #f9f9f9;
+  	text-decoration: none;
+  	font-size: xx-large;
+  	font-weight: bold;
+  	vertical-align: middle;
+  	border: none;
+  	
+  	&:focus {
+		&:after {
+  			box-shadow: none;
+  		}
+  	}
+  }
+  
+}

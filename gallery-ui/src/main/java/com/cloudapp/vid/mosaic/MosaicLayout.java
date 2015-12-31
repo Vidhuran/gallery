@@ -39,6 +39,7 @@ public class MosaicLayout extends VerticalLayout implements View {
 
 	private void buildLayout(String folder) {
 		mosaic = new AbsoluteLayout();
+		mosaic.setData(1);
 		download = new DownloadButton(folder);
 	}
 	
@@ -57,12 +58,16 @@ public class MosaicLayout extends VerticalLayout implements View {
 	
 	private void populateLayout(List<Thumbnail> thumbnails) {
 		thumbnails.forEach((thumbs) -> {
+			System.out.println("Width : " + mosaic.getWidth());
+			System.out.println("Height : " + mosaic.getHeight());
 			double left = Math.random()*(0.70 * BrowserUtils.getCentreWidth());
 			double top = Math.random()*(0.50 * BrowserUtils.getCentreHeight());
 			Random rand = new Random();
 			left = (rand.nextBoolean() == true) ? left : -left;
 			top = (rand.nextBoolean() == true) ? top : -top;
-			String cssPosition = "left: " + (BrowserUtils.getCentreWidth() + left) + "px; top: " + (BrowserUtils.getCentreHeight() + top) + "px;";
+			int zIndex = (int)mosaic.getData(); 
+			String cssPosition = "left: " + (BrowserUtils.getCentreWidth() + left) + "px; top: " + (BrowserUtils.getCentreHeight() + top) + "px; z-index: " + zIndex + ";";
+			mosaic.setData(++zIndex);
 			mosaic.addComponent(thumbs, cssPosition);
 		});
 	}

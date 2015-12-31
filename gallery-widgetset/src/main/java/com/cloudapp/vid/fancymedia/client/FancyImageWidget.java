@@ -14,14 +14,18 @@ import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseOutHandler;
+import com.google.gwt.event.dom.client.MouseOverEvent;
+import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
-
+ 
 // Extend any GWT Widget
-public class FancyImageWidget extends Widget {
+public class FancyImageWidget extends Widget implements MouseOverHandler, MouseOutHandler {
 
 	private final List<ImageElement> images = new ArrayList<ImageElement>();
     private int currentIndex = 0;
@@ -40,6 +44,8 @@ public class FancyImageWidget extends Widget {
     public final static String CLASS_NAME = "fancy-image";
 
     protected final ElementStyler styler = new ElementStyler();
+    
+    private final DivElement bottomWrapper, topWrapper;
 
     native void consoleLog(final String message) 
     /*-{
@@ -50,8 +56,28 @@ public class FancyImageWidget extends Widget {
         DivElement root = Document.get().createDivElement();
         root.getStyle().setPosition(Position.RELATIVE);
         root.addClassName(CLASS_NAME);
-
+        
         this.setElement(root);
+        
+        topWrapper = Document.get().createDivElement();
+        bottomWrapper = Document.get().createDivElement();
+        
+        topWrapper.getStyle().setWidth(100, Unit.PCT);
+        topWrapper.getStyle().setHeight(50, Unit.PX);
+        topWrapper.getStyle().setBackgroundColor("#808080");
+        topWrapper.getStyle().setOpacity(0.5);
+        topWrapper.getStyle().setZIndex(9999);
+        topWrapper.getStyle().setPosition(Position.ABSOLUTE);
+        
+        bottomWrapper.getStyle().setWidth(100, Unit.PCT);
+        bottomWrapper.getStyle().setHeight(50, Unit.PX);
+        bottomWrapper.getStyle().setBackgroundColor("#808080");
+        bottomWrapper.getStyle().setOpacity(0.5);
+        bottomWrapper.getStyle().setZIndex(9999);
+        bottomWrapper.getStyle().setPosition(Position.ABSOLUTE);
+        
+        root.appendChild(topWrapper);
+        root.appendChild(bottomWrapper);
         
         Window.addResizeHandler(new ResizeHandler() {
 
@@ -69,6 +95,8 @@ public class FancyImageWidget extends Widget {
 				resizeTimer.schedule(250);
 			}
         });
+        
+        
     }
 
     private void stopAutoBrowseTimer() {
@@ -120,6 +148,15 @@ public class FancyImageWidget extends Widget {
         image.getStyle().setLeft(left, Unit.PX);
         image.getStyle().setTop(top, Unit.PX);
         styler.styleElementOut(image);
+        
+        // Move it later
+        consoleLog("Root client height : " + getElement().getClientHeight());
+        consoleLog("Root offset height : " + getElement().getOffsetHeight());
+        consoleLog("Root scroll height : " + getElement().getScrollHeight());
+        consoleLog("Root style height : " + getElement().getStyle().getHeight());
+        
+        bottomWrapper.getStyle().setTop(getElement().getClientHeight() - 50, Unit.PX);
+        
         return image;
     }
 
@@ -285,5 +322,17 @@ public class FancyImageWidget extends Widget {
         }
 
     }
+
+	@Override
+	public void onMouseOut(MouseOutEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onMouseOver(MouseOverEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

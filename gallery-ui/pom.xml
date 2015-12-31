@@ -86,11 +86,14 @@
     <build>
     	<resources>
         	<resource>
-            	<directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
                 <includes>
-          			<include>**/*.properties</include>
-        		</includes>
+                    <include>config.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
         <plugins>

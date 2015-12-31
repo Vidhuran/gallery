@@ -11,7 +11,6 @@ import com.vaadin.ui.DragAndDropWrapper.WrapperTransferable;
 
 public class DragAndDropHandler implements DropHandler {
 
-	private int MAX_Z_INDEX = 0;
 	private AbsoluteLayout mosaic;
 
 	public DragAndDropHandler(AbsoluteLayout mosaic) {
@@ -34,7 +33,9 @@ public class DragAndDropHandler implements DropHandler {
 				mosaic.getPosition(t.getSourceComponent());
 		pos.setLeftValue(pos.getLeftValue() + xChange);
 		pos.setTopValue(pos.getTopValue() + yChange);
-		pos.setZIndex(MAX_Z_INDEX  += 1);
+		int zIndex = (int)mosaic.getData();
+		pos.setZIndex(++zIndex);
+		mosaic.setData(zIndex);
 		
 	}
 
